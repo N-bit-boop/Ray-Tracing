@@ -1,0 +1,10 @@
+^C:\USERS\NIRAN\ONEDRIVE\DESKTOP\RAYT\BUILD\CMAKEFILES\8DDB330288CE5D7DD10745876FF88A42\GENERATE.STAMP.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SC:/Users/niran/OneDrive/Desktop/RayT -BC:/Users/niran/OneDrive/Desktop/RayT/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/niran/OneDrive/Desktop/RayT/build/inOneWeekend.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,3 @@
+C:/Users/niran/OneDrive/Desktop/RayT/build/CMakeFiles/inOneWeekend.dir
+C:/Users/niran/OneDrive/Desktop/RayT/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/niran/OneDrive/Desktop/RayT/build/CMakeFiles/ZERO_CHECK.dir
