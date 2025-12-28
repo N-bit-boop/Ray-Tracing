@@ -1,7 +1,7 @@
 #ifndef COLOR_H
 #define COLOR_H
 
-#include <iostream>
+#include "rtweekend.hpp"
 
 #include "vec.hpp"
 

@@ -2,7 +2,7 @@
 #define SPHERE_H
 
 #include "hittable.hpp"
-#include "vec.hpp"
+#include "rtweekend.hpp"
 
 
 class sphere : public hittable{
@@ -33,7 +33,8 @@ class sphere : public hittable{
 
             rec.t = root;
             rec.p = r.at(rec.t);
-            rec.normal = (rec.p - center ) / radius; //Divided for the uniot lenght
+            vec3 outward_normal = (rec.p - center ) / radius; //Divided for the uniot lenght
+            rec.set_face_normal(r, outward_normal);
 
             return true;
 
