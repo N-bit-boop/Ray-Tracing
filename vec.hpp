@@ -48,6 +48,20 @@ class vec3{
         return e[0] * e[0] + e[1] * e[1] + e[2] * e[2];
     }
 
+    bool near_zero() const{
+        //Return true if the vector is close ot 0 in all x,y,z
+        auto s = 1e-8;
+         return (std::fabs(e[0]) < s) && (std::fabs(e[1]) < s) && (std::fabs(e[2]) < s);
+    }
+
+    static vec3 random(){
+        return vec3(random_double(),random_double(),random_double());
+    }
+
+    static vec3 random(double min, double max){
+        return vec3(random_double(min,max), random_double(min,max), random_double(min, max));
+    }
+
 };
 
 using point3 = vec3; //For geometrical clarity as each (x,y,z) is a point unless conecyte
@@ -97,6 +111,27 @@ inline vec3 cross(const vec3& u, const vec3& v) {
 inline vec3 unit_vector(const vec3& v) {
     return v / v.length();
 }
+
+inline vec3 random_unit_vector(){
+    while(true){
+        auto p =  vec3::random(-1,1);
+        auto lensq = p.length_squared();
+        if (1e-160 < lensq && lensq <= 1){ //make sure we dont get values that are very close to 0, so we dont get +- infinity
+            return p / sqrt(lensq);
+        }
+    }
+}
+
+inline vec3 random_on_hemisphere(const vec3& normal){
+    vec3 on_unit_sphere = random_unit_vector();
+    if(dot(on_unit_sphere,normal) > 0.0 ){
+        return on_unit_sphere;
+    }
+    else{
+        return -on_unit_sphere;
+    }
+}
+
 
 
 
